@@ -28,7 +28,7 @@
 										<li><i class="fa fa-weixin" aria-hidden="true"></i></li>
 										<li><i class="fa fa-qq" aria-hidden="true"></i></li>
 										<li><i class="fa fa-weibo" aria-hidden="true"></i></li>
-										<li><p>Bilibili</p></li>
+										<li><a href="https://space.bilibili.com/66381056">Bilibili</a></li>
 									</ul>
 								</header>
 
@@ -48,7 +48,37 @@
 										<img src="images/Profile1.jpg" alt="" />
 									</span>
 								</section>
-
+								
+							<!-- Section -->								
+								<section>
+									<header class="major">
+										<h2>My Belif</h2>
+									</header>
+									<div style="text-align:center"> 
+											<video id="video1" width="420">
+  												<source src="Video/uou-edit.mp4" type="video/mp4">
+											</video><br>
+ 											<button onclick="playPause()">点此播放/暂停</button> 
+  											<button onclick="makeBig()">放大</button>
+  											<button onclick="makeSmall()">缩小</button>
+  											<button onclick="makeNormal()">普通</button>
+ 											<br>
+										</div>
+										<script> 
+										var myVideo=document.getElementById("video1"); 
+										function playPause()	
+										{ if (myVideo.paused) 
+	  										myVideo.play(); 
+											else myVideo.pause(); } 
+										function makeBig()
+										{ myVideo.width=560; } 
+										function makeSmall()
+										{ myVideo.width=320; } 
+										function makeNormal()
+										{ myVideo.width=420; } 
+										</script> 
+								</section>
+								
 							<!-- Section -->
 								<section>
 									<header class="major">
@@ -169,8 +199,10 @@
 									<div class="mini-posts">
 										<article>
 											<a href="#" class="image"><img src="images/pic-beta.jpg" alt="" /></a>
-											<p>版本号：beta0.1<br>修改时间：2019-09-21<br>修改内容：修改内容，搭建初步框架，了解代码内容</p>
+											
+											<p>版本号：beta0.1.2<br>修改时间：2019-09-23<br>修改内容：新增Bilibili链接跳转，视频栏目</p>
 											<p>版本号：beta0.1.1<br>修改时间：2019-09-22<br>修改内容：新增访问量统计模块，更改头图等</p>
+											<p>版本号：beta0.1<br>修改时间：2019-09-21<br>修改内容：修改内容，搭建初步框架，了解代码内容</p>
 										</article>
 										<article>
 											<a href="#" class="image"><img src="images/Profile2.jpg" alt="" /></a>
