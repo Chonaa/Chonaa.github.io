@@ -1,240 +1,230 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>#未开放#Chonaa's Zone</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-		<style>
-			.vid-wrap
-			{
-    			width:100%;background: #000;
-   			position:relative;
-    			padding-bottom:56.25%;
-    			height: 0;
-			}
-			.vid-wrap video
-			{
-    			position: absolute;
-    			top:0;
-    			left: 0;
-    			width: 100%;
-    			height: 100%
-			}
-		</style>
 
-		
-	</head>
-	<body class="is-preload">
+<head>
+    <title>b言b语</title>
+    <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
+    <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
+    <link href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="daibor" />
+    <meta charset="utf-8" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<body>
+    <header id="header">
+        <h1>b言b语</h1>
+    </header>
+    <main id="app">
+        <aside>
+            <p id="describe">
+                可以在这里简单介绍你自己
+            </p>
+        </aside>
+        <p class="tip">现在总共 b 了 {{count}} 条</p>
+        <section class="item" v-for="item in contents" v-cloak>
+            <p v-html='item.attributes.content'></p>
+            <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
+        </section>
+        <div class="load-ctn">
+            <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>再翻翻</button>
+            <p class="tip" v-else>别急，加载呢</p>
+        </div>
+    </main>
+    <footer>
+        <p class="center-text">Copyright © 2020 daibor,All Rights Reserved</p>
+    </footer>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script type="text/javascript">
+    var {
+        Query
+    } = AV;
+    AV.init({
+        appId: "VdP7wVNnibhcLA0qkVzXAs9I-MdYXbMMI", //你的 leancloud 应用 id （设置-应用keys-AppID）
+        appKey: "1brx5dYdLT1A0YO8c2UUt7Bh", //你的 leancloud 应用 AppKey （设置-应用keys-AppKey）
+        //serverURLs: '国际版可删除该行，否则必须在后台绑定域名并填写在此'
+    });
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+    var query = new AV.Query('content');
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>欢迎回来！<br>Welcome Back!</strong></a>
-									<ul class="icons">
-										
-										<li><a href="https://weibo.com/u/7310170066"><i class="fa fa-weibo" aria-hidden="true"></i></li>
-										<li><a href="https://space.bilibili.com/66381056">Bilibili</a></li>
-									</ul>
-								</header>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            page: 0,
+            count: 0,
+            contents: []
+        },
+        methods: {
+            loadMore: function(event) {
+                getData(++this.page);
+            }
+        }
+    })
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Hello, I'm Chonaa</h1>
-											<p>这是一个私人空间</p>
-										</header>
-										<p>正文1</p>
-										<ul class="actions">
-											<li><a href="#" class="button big">了解更多</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="images/Profile1.jpg" alt="" />
-									</span>
-								</section>
-								
-							<!-- Section -->								
-								<section>
-									<header class="major">
-										<h2>My Belif</h2>
-									</header>
-									<div class="vid-wrap" style="text-align:center"> 
-											<video width="640" height="360" controls="controls" controlsList="nodownload" oncontextmenu="return false;" preload="auto">
-  												<source src="Video/uou-edit.mp4" type="video/mp4">
-  												Your browser does not support the video tag.
-											</video>
-									</div>
-								</section>
-								
-							<!-- Section -->									
-								<section>
-									<article>
-										<div class="myupdatesedit"></div>
-									</article>
-								</section>
-								
-							<!-- Section -->									
-								<section>
-									<article>
-										<div class="milestone"></div>
-									</article>
-								</section>
-								
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>个人爱好</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>爱好1</h3>
-												<p>爱好1介绍</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>爱好2</h3>
-												<p>爱好2介绍</p>
-											</div>
-										</article>
-									</div>
-								</section>
+    function urlToLink(str) {
+        var re = /(http|ftp|https):\/\/[\w-]+(.[\w-]+)+([\w-.,@?^=%&:/~+#]*[\w-\@?^=%&/~+#])?/g;;
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>第二栏</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<h3>项目1</h3>
-											<p>项目1介绍</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<h3>项目2</h3>
-											<p>项目2介绍</p>
-											<ul class="actions">
-												<li><a href="#" class="button">More</a></li>
-											</ul>
-										</article>
-									</div>
-								</section>
-						</div>
-					</div>
+        str = str.replace(re, function(website) {
+            return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
+        });
+        return str;
+    }
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+    function getData(page = 0) {
+        query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
+            if (results.length == 0) {
+                alert('之前没 b 过了')
+            } else {
+                let resC = results;
+                reqData = false;
+                resC.forEach((i) => {
+                    let dateTmp = new Date(i.createdAt);
+                    i.attributes.time = `${dateTmp.getFullYear()}-${(dateTmp.getMonth() + 1) < 10 ? ('0' + (dateTmp.getMonth()+1)) : dateTmp.getMonth()+1}-${(dateTmp.getDate() + 1) < 10 ? ('0' + dateTmp.getDate()) : dateTmp.getDate()} ${(dateTmp.getHours() + 1) <= 10 ? ('0' + dateTmp.getHours()) : dateTmp.getHours()}:${(dateTmp.getMinutes() + 1) <= 10 ? ('0' + dateTmp.getMinutes()) : dateTmp.getMinutes()}`;
+                    i.attributes.content = "<span>" + urlToLink(i.attributes.content) + "</span>";
+                    app.contents.push(i);
+                })
+            }
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search (not available)" />
-									</form>
-								</section>
+        }, function(error) {});
+    }
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-											 src="https://embed.music.apple.com/cn/album/revenge-feat-the-flaming-lips/693814934?i=693814936"></iframe>
-										<li><a href="index.html">主页</a></li>
-										<li><a href="generic.html">Page1</a></li>
-										<li><a href="elements.html">Page2</a></li>
-										<li>
-											<span class="opener">新功能试验区</span>
-											<ul>
-												<li><a href="Version.html">版本更新说明</a></li>
-												<li><a href="videoshare.html">精选视频</a></li>
-												<li><a href="#">Page3-3</a></li>
-											</ul>
-										</li>
-									</ul>
-								</nav>
+    getData(0);
 
-							<!-- Section -->
-								<section>
-									<div class="mini-posts">
-										
-										<article>
-											<a href="#" class="image"><img src="images/Profile2.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
+    query.count().then(function(count) {
+        app.count = count;
+    }, function(error) {});
+</script>
+<style type="text/css">
+    @media (prefers-color-scheme: dark) {
+        /* 夜间模式 */
+        body {
+            background-color: black;
+            color: white;
+        }
+        body .item {
+            border-top: 6px solid #888888;
+            background-color: rgb(21, 32, 43);
+            color: #ccc;
+        }
+        body time {
+            color: #aaa;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        aside {
+            color: #ccc;
+        }
+        body .load-btn {
+            background-color: #000;
+            color: #ddd;
+        }
+        body .load-btn:hover:active {
+            background: #1DA1F2;
+            color: #fff;
+        }
+    }
+    
+    [v-cloak] {
+        display: none;
+    }
+    
+    html {
+        font-size: 20px;
+    }
+    
+    body,
+    button {
+        font-family: 'Noto Serif SC', serif;
+    }
+    
+    aside {
+        font-weight: 300;
+        font-style: normal;
+        line-height: 1.8rem;
+    }
+    
+    #app,
+    header,
+    footer {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    h1 {
+        font-weight: 900;
+    }
+    
+    footer {
+        font-size: 0.8rem;
+        clear: both;
+    }
+    
+    .tip {
+        color: #999;
+    }
+    
+    .item {
+        font-weight: 300;
+        font-style: normal;
+        line-height: 1.8rem;
+        background: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        margin-top: 20px;
+        border-top: 6px solid;
+        text-align: justify;
+    }
+    
+    .item a {
+        text-decoration: none;
+        color: #5dafd5;
+    }
+    
+    time {
+        font-weight: 200;
+        color: #bbb;
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    
+    .load-ctn {
+        width: 100%;
+    }
+    
+    .load-btn {
+        border: 2px solid #666;
+        width: 130px;
+        outline: none;
+        font-size: 20px;
+        border-radius: 100px;
+        margin: 30px auto;
+        color: #666;
+        line-height: 30px;
+        float: right;
+        background: #fff;
+    }
+    
+    .load-btn:hover:active {
+        background: #666;
+        color: #fff;
+    }
+</style>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Contact Me</h2>
-									</header>
-									<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">Chonaa@126.com</a></li>
-										<li class="icon solid fa-phone">(+86) 155-xxxx-2494</li>
-										<li class="icon solid fa-home">学院路3号 中北大学<br />
-										山西省太原市尖草坪区 030051</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
-            							<p class="copyright">&copy; Chonaa. All rights reserved. <br>
-            							Design:HTML5 UP.</p>
-								</footer>
-						</div>
-					</div>
-
-			</div>
-					
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script type="text/javascript">
-				$(function() 
-				{
-        			$('.myupdatesedit').load('Edit/MyUpdatesEdit.html')
-        			$('.milestone').load('Edit/milestone.html')
-       			})
-			</script>
-
-
-	</body>
 </html>
