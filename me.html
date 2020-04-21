@@ -29,13 +29,11 @@
                 “此谓诚于中，形于外，故君子必慎其独也”
             </p>
             <hr>
-            <li><a href="https://space.bilibili.com/66381056" target="_blank"><small>Bilibili</small></a></li>
-            <li><a href="https://www.chonaa.com/indexx" target="_blank"><small>个人Blog</small></a></li>
         </aside>
         <p class="tip">当前记录了 {{count}} 条</p>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
-        <time v-bind:datetime="item.attributes.time"><small>{{item.attributes.time}}</small></time>
+        <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
         </section>
         <div class="load-ctn">
             <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>再翻翻</button>
@@ -43,6 +41,7 @@
         </div>
     </main>
     <footer>
+        <div align="center"><a href="https://space.bilibili.com/66381056" target="_blank"><small>Bilibili</small></a></div>
         <p class="center-text">Copyright © 2020 daibor,All Rights Reserved</p>
     </footer>
 </body>
