@@ -21,15 +21,17 @@
 
 <body>
     <header id="header">
-        <h1>b言b语</h1>
+        <h1>Chonaa的小圈</h1>
     </header>
     <main id="app">
         <aside>
             <p id="describe">
-                可以在这里简单介绍你自己
+                “此谓诚于中，形于外，故君子必慎其独也”
             </p>
+            <li><a href="https://space.bilibili.com/66381056">Bilibili</a></li>
+            <li><a href="https://www.chonaa.com/indexx">个人Blog</a></li>
         </aside>
-        <p class="tip">现在总共 b 了 {{count}} 条</p>
+        <p class="tip">现在总共 贴 了 {{count}} 条</p>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
