@@ -36,7 +36,7 @@
         </aside>
         <p class="tip">当前记录了 {{count}} 条</p>
         <section class="item" v-for="item in contents" v-cloak>
-            <p style="font-size:4" v-html='item.attributes.content'></p>
+            <p style="font-size:20px" v-html='item.attributes.content'></p>
         <time style="font-size:3" v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
         </section>
         <div class="load-ctn">
