@@ -35,6 +35,11 @@
             <hr>
         </aside>
         <p class="tip">当前记录了 {{count}} 条</p>
+        <section>
+            <p class="tip">【置顶】</p>
+            <p >I will always be with you :)</p>
+            <time datetime="2020-04-23 14:40">2020-04-23 18:18</time>
+        </section>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
