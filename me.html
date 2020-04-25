@@ -17,20 +17,22 @@
     <meta name="verify" content="index,follow" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="stylesheet" href="assets/css/music.css" />
-    <script src="assets/js/music.js"></script>
+    <!--<link rel="stylesheet" href="assets/css/music.css" />-->
+    
     
 </head>
 
 <body>
-    
+    <div align="center">
     <span id="musicControl">
         <a id="mc_play" class="on" onclick="play_music();">
-            <audio id="music" loop="loop" autoplay="autoplay">
+            <audio id="music" loop="loop" controls>
                 <source src="mp3/mp3.mp3" type="audio/mpeg">
             </audio>
         </a>
     </span>
+    </div>
+    
     
     <header id="header">
         <h1>Chonaa的小圈</h1>
@@ -73,6 +75,7 @@
 
 <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script src="assets/js/music.js"></script>
 <script type="text/javascript">
     var {
         Query
