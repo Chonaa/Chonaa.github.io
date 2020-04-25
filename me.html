@@ -18,10 +18,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="assets/css/music.css" />
+    <script src="assets/js/music.js"></script>
     
 </head>
 
 <body>
+    
     <span id="musicControl">
         <a id="mc_play" class="on" onclick="play_music();">
             <audio id="music" loop="loop" autoplay="autoplay">
@@ -29,6 +31,7 @@
             </audio>
         </a>
     </span>
+    
     <header id="header">
         <h1>Chonaa的小圈</h1>
     </header>
@@ -67,7 +70,7 @@
         <p class="center-text">Copyright © 2020 Chonaa,All Rights Reserved</p>
     </footer>
 </body>
-<script src="assets/js/music.js"></script>
+
 <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
 <script type="text/javascript">
