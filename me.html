@@ -101,7 +101,7 @@
     }
 
     function getData(page = 0) {
-        query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
+        query.descending('createdAt').skip(page * 10).limit(10).find().then(function(results) {
             if (results.length == 0) {
                 alert('没有内容啦')
             } else {
