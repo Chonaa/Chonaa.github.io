@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Chonaa的小圈</title>
+    <title>Chonaa的每日Log</title>
     <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
     <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
     <link href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <body>
     <header id="header">
-        <h1>Chonaa的小圈</h1>
+        <h1>Chonaa的每日Log</h1>
     </header>
     <main id="app">
         <aside>
@@ -37,13 +37,6 @@
             <hr>
         </aside>
         <p class="tip"><font size="3">当前记录了 {{count}} 条</font></p>
-        <section  class="item" v-cloak>
-            <div align="left">
-            <p><font size="4">【置顶】</font></p>
-            </div>
-            <p>Stay with me, <br>and I will always be with you :)</p>
-            <time datetime="2020-03-22 22:55">2020-03-22 22:55</time>
-        </section>
         <section class="item" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content1'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
