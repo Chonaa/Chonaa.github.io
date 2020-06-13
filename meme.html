@@ -22,15 +22,19 @@
 
 <body>
     <header id="header">
-        <h1>b言b语</h1>
+        <h1>Chonaa的小圈</h1>
     </header>
     <main id="app">
         <aside>
             <p id="describe">
-                可以在这里简单介绍你自己
+                    “小人閒居為不善，無所不至。<br>
+                見君子而後厭然，掩其不善，而著其善。<br>
+                人之視己，如見其肺肝然，則何益矣。<br>
+                此謂誠於中，形於外。故君子必慎獨也。”
             </p>
+            <hr>
         </aside>
-        <p class="tip">现在总共 b 了 {{count}} 条</p>
+        <p class="tip"><font size="3">当前记录了 {{count}} 条</font></p>
         <section class="item" v-bind:class="'type-'+item.attributes.type" v-for="item in contents" v-cloak>
             <p v-html='item.attributes.content'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
@@ -40,8 +44,12 @@
             <p class="tip" v-else>别急，加载呢</p>
         </div>
     </main>
-    <footer>
-        <p class="center-text">Copyright © 2020 daibor,All Rights Reserved</p>
+    <footer id="footer">
+        <div align="center">
+            <p>友情链接:&nbsp;<a href="https://space.bilibili.com/66381056" target="_blank"><small>Bilibili</small></a></p>
+            <p> <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p>
+        </div>
+        <p class="center-text">Copyright © 2020 Chonaa,All Rights Reserved</p>
     </footer>
 </body>
 <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
@@ -51,9 +59,9 @@
         Query
     } = AV;
     AV.init({
-        appId: "aaa", //你的 leancloud 应用 id （设置-应用keys-AppID）
-        appKey: "aaa", //你的 leancloud 应用 AppKey （设置-应用keys-AppKey）
-        serverURLs: '国际版可删除该行，否则必须在后台绑定域名并填写在此'
+        appId: "VdP7wVNnibhcLA0qkVzXAs9I-MdYXbMMI", //你的 leancloud 应用 id （设置-应用keys-AppID）
+        appKey: "1brx5dYdLT1A0YO8c2UUt7Bh", //你的 leancloud 应用 AppKey （设置-应用keys-AppKey）
+        //serverURLs: '国际版可删除该行，否则必须在后台绑定域名并填写在此'
     });
 
     //设定存储数据的 className
