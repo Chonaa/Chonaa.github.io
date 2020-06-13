@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>b言b语</title>
+    <title>LY&Chonaa</title>
     <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
     <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
     <link href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified" rel="stylesheet">
@@ -22,7 +22,7 @@
 
 <body>
     <header id="header">
-        <h1>Chonaa的小圈</h1>
+        <h1>LY和Chonaa的小圈</h1>
     </header>
     <main id="app">
         <aside>
@@ -36,7 +36,7 @@
         </aside>
         <p class="tip"><font size="3">当前记录了 {{count}} 条</font></p>
         <section class="item" v-bind:class="'type-'+item.attributes.type" v-for="item in contents" v-cloak>
-            <p v-html='item.attributes.content'></p>
+            <p v-html='item.attributes.lovers'></p>
             <time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time>
         </section>
         <div class="load-ctn">
@@ -65,7 +65,7 @@
     });
 
     //设定存储数据的 className
-    var query = new AV.Query('content');
+    var query = new AV.Query('lovers');
 
     var app = new Vue({
         el: '#app',
@@ -95,14 +95,14 @@
     function getData(page = 0) {
         query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
             if (results.length == 0) {
-                alert('之前没 b 过了')
+                alert('没有内容啦')
             } else {
                 let resC = results;
                 reqData = false;
                 resC.forEach((i) => {
                     let dateTmp = new Date(i.createdAt);
                     i.attributes.time = `${dateTmp.getFullYear()}-${(dateTmp.getMonth() + 1) < 10 ? ('0' + (dateTmp.getMonth()+1)) : dateTmp.getMonth()+1}-${(dateTmp.getDate() + 1) < 10 ? ('0' + dateTmp.getDate()) : dateTmp.getDate()} ${(dateTmp.getHours() + 1) <= 10 ? ('0' + dateTmp.getHours()) : dateTmp.getHours()}:${(dateTmp.getMinutes() + 1) <= 10 ? ('0' + dateTmp.getMinutes()) : dateTmp.getMinutes()}`;
-                    i.attributes.content = "<span>" + urlToLink(i.attributes.content) + "</span>";
+                    i.attributes.lovers = "<span>" + urlToLink(i.attributes.lovers) + "</span>";
                     app.contents.push(i);
                 })
             }
